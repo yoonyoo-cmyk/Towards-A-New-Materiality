@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-<title>Towards A New Materiality</title>
+  <title>Zine Page</title>
 <!--   <link rel="stylesheet" href="style.css"> -->
   <link rel="stylesheet" href="https://use.typekit.net/czi4xzo.css">
   
@@ -38,6 +38,11 @@
       margin-top:20px;
     }
     .slideshow4 {
+      width:100%;
+/*       height:200px; */
+      margin-top:20px;
+    }
+        .slideshow5 {
       width:100%;
 /*       height:200px; */
       margin-top:20px;
@@ -80,6 +85,13 @@
       margin-right: 10px;
 /*       background:red; */
     }
+        .slideshow5 .slide {
+      width: 35%; /* half-width */ 
+/*       height: 160px; */
+      margin-right: 10px;
+    }
+        .slideshow5 .slide .size-large { height: 30%; }
+    }
     
     .slideshow-nav .slide {
       width: 25%; /* half-width */
@@ -88,34 +100,28 @@
 /*       background:blue; */
     }
     
-    .slideshow .slide img,.slideshow1 .slide img,.slideshow2 .slide img,.slideshow3 .slide img,.slideshow4 .slide img, .slideshow-nav .slide img {
+    .slideshow .slide img,.slideshow1 .slide img,.slideshow2 .slide img,.slideshow3 .slide img,.slideshow4 .slide img,.slideshow5 .slide img,.slideshow5 .slide .size-large img, .slideshow-nav .slide img {
       width:100%;
       height:auto;
     }
     
-    /* Basic style settings */
 body {
   margin: 0;
-  background-color: #f0dcc0;
+  background-color: #F0E2C7;
   font-family: 'Poppins', sans-serif;
   color: #9F7953;
 }
-/* Link style */
 a {
   text-decoration: none;
-  color: #9F7953;
-  transition: color 0.3s;
+  color: #8b5e3c;
+  transition: 0.3s ease;
+  
 }
 a:hover {
   color: #D4701F;
+   -webkit-text-stroke: 2px #D4701F;
+  text-decoration: none;
 }
-        h1{
-            font-size:15px;
-        }
-        h2{
-            font-size:8px;
-            font-weight: initial;
-        }
 
 /* Container settings */
 .container {
@@ -128,32 +134,36 @@ a:hover {
 
 
 
-/* Card design */
+
 .card {
   background-color: #fff;
-  width: 500px;
-  height: 500px;
+  width: 800px;
+  height: 800px;
   border: 1px solid #9F7953;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 1px;
+/*   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   padding: 50px;
   box-sizing: border-box;
+  margin-left: 500px;
+  margin-top: 100px;
+
 }
 
-/* Title style */
-.title {
-  display: block;
-  text-align: center;
-  font-family: 'Solvent';
-  font-weight: bold;
-  font-size: 25px;
-  color: #9F7953;
-  margin: 15px 0;
-  text-decoration: none;
-}
+  .title {
+    font-size: 50px;
+    font-family: 'Solvent';
+    color: #9F7953;
+    -webkit-text-stroke: 2px #9F7953;
+       text-decoration: none;
+    position: absolute;
+    top: 100px;
+    left: 50px;
+  
+  }  
+
 
 /* Underline */
 .underline {
@@ -174,7 +184,7 @@ a:hover {
 
 /* Content area */
 .content {
-  font-size: 11px;
+  font-size: 15px;
   line-height: 2;
   overflow-y: auto;
   padding-right: 30px;
@@ -187,6 +197,11 @@ a:hover {
 .content b {
   font-weight: bold;
 }
+        
+        .content c {
+          font size: 10px;
+          font-style: italic;
+        }
 
 
 /* Credits style */
@@ -230,16 +245,6 @@ a:hover {
   margin-left: 10px; 
 }
 
-    /* dots are lines */
-    .flickity-page-dots .dot {
-      height: 4px;
-      width: 20px;
-      margin: 0;
-      border-radius: 0;
-      background: #9F7953;
-
-    }
-    
   </style>
 </head>
 <body>
@@ -247,21 +252,15 @@ a:hover {
   <div class="container">
     <div class="card">
       <a href="index.html" class="title">TOWARDS A NEW MATERIALITY</a>
-      <div class="underline"></div>
-
-      <div class="nav">
-        <div><a href="Recipe.html">Recipe</a></div>
-        <div><a href="Plantpot.html">Plant Pot</a></div>
-        <div><a href="DIYkit.html">DIY kit</a></div>
-      </div>
 
       <div class="content">
                 
         <br><br><br><br><br><br>
         Now, let’s make it functional.<br><br>
 
-        With <b>light</b>, the material casts soft shadows. Its texture stands out on its own.With <b>soil</b>, it biodegrades even faster.<br><h1>plant pot</h1> can be the perfect fit.
-        <h2>*Or if you have a better idea - like a lampshade or a sun-catcher - bring it to life.</h2><br>
+        With <b>light</b>, the material casts soft shadows. Its texture stands out on its own.With <b>soil</b>, it biodegrades even faster.<br><h1>plant pot</h1> can be the perfect fit.<br>
+        
+        <c>*Or if you have a better idea - like a lampshade or a sun-catcher - bring it to life.</c><br><br>
 
         Now it’s your turn to <b>design your own plant pot.</b><br> Use any object you have as a mould, and feel free to adjust the recipe to explore new textures, forms, and properties.
        
@@ -270,7 +269,20 @@ a:hover {
 
         <br><br>Let it grow, adapt, and return to the earth - just as it began.<br><br>
         
-        
+         <div class="slideshow5">
+          <div class="slide">
+            <img src="p2.jpg">
+          </div>
+          <div class="slide">
+            <img src="p3.jpg">
+          </div>
+          <div class="slide">
+            <img src="p4.jpg">
+          </div>
+          <div class="slide">
+            <img src="p5.jpg">
+          </div>
+        </div>
         
         <h1>Tips.</h1>
 
@@ -343,7 +355,7 @@ a:hover {
         <b>Note..</b><br>
         <span class="spacing"><b>- </b>If starch bioplastic is soaked in water, it softens and may lose shape.</span><br>
         <span class="spacing"><b>- </b>Keep indoors.</span><br>
-        <h2><span class="spacing">* Ideal for dry-loving plants like cactus.</span></h2>
+        <c><span class="spacing">* Ideal for dry-loving plants like cactus.</span></c>
       </div>
     </div>
       <div class="credits">
@@ -360,10 +372,13 @@ a:hover {
 https://cdn.jsdelivr.net/npm/flickity-imagesloaded@2.0.0/flickity-imagesloaded.min.js
 "></script>
   <script>
+    
     var elem1 = document.querySelector('.slideshow1');
     var elem2 = document.querySelector('.slideshow2');
     var elem3 = document.querySelector('.slideshow3');
     var elem4 = document.querySelector('.slideshow4');
+    var elem5 = document.querySelector('.slideshow5');
+
     var elem = document.querySelector('.slideshow-nav');
     
     var flkty = new Flickity( elem1, {
@@ -403,6 +418,15 @@ https://cdn.jsdelivr.net/npm/flickity-imagesloaded@2.0.0/flickity-imagesloaded.m
       wrapAround: false,
       fade: true,
       autoPlay: true
+    });var flkty = new Flickity( elem5, {
+     cellAlign: 'center',
+      contain: true,
+      prevNextButtons: false,
+      pageDots: true,
+      imagesLoaded: true,
+      wrapAround: false,
+      fade: true,
+      autoPlay: true
     });
     var flkty = new Flickity( elem, {
       contain: true,
@@ -418,3 +442,4 @@ https://cdn.jsdelivr.net/npm/flickity-imagesloaded@2.0.0/flickity-imagesloaded.m
   
 </body>
 </html>
+
