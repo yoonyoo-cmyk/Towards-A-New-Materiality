@@ -2,133 +2,174 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Towards A New Materiality</title>
-
   <link rel="stylesheet" href="https://use.typekit.net/czi4xzo.css">
-<!--   <link rel="stylesheet" href="style.css"> -->
-  
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js"></script>
-  
-   <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-  
-   <style>
-    
-    .slideshow {
+
+  <style>
+    /* ─── Reset & 기본 ─── */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #F0E2C7;
+      font-family: 'Poppins', sans-serif;
+      color: #9F7953;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    a {
+      text-decoration: none;
+      color: #8B5E3C;
+      transition: color .3s ease;
+    }
+    a:hover { color: #D4701F;
+    -webkit-text-stroke: 2px #D4701F;}
+
+       .slideshow {
       width:100%;
 /*       height:200px; */
       margin-top:20px;
     }
-
-    .slideshow-nav {
-      width:100%;
-      margin-bottom:20px;
-/*       height:100px; */
-    }
-
-    .slideshow .slide {
-      width: 20%; /* half-width */ 
+    
+        .slideshow .slide {
+      width: 35%; /* half-width */ 
 /*       height: 160px; */
       margin-right: 10px;
 /*       background:red; */
     }
-   
-    .slideshow .slide img, .slideshow-nav .slide img {
+ .slideshow .slide img. {
       width:100%;
       height:auto;
     }
     
-    /* Basic style settings */
-body {
-  margin: 0;
-  background-color: #f0dcc0;
-  font-family: 'Poppins', sans-serif;
-  color: #9F7953;
-}
-/* Link style */
-a {
-  text-decoration: none;
-  color: #9F7953;
-  transition: color 0.3s;
-}
-a:hover {
-  color: #D4701F;
-}
-
-
-/* Container settings */
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 30px;
-  }
-
-
-
-/* Card design */
-.card {
-  background-color: #fff;
-  width: 500px;
-  height: 500px;
+    /* ─── 카드 레이아웃 ─── */
+    .card {
+     background-color: #fff;
+  width: 800px;
+  height: 800px;
   border: 1px solid #9F7953;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 1px;
+/*   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   padding: 50px;
   box-sizing: border-box;
-}
+  margin-left: 500px;
+  margin-top: 100px;
 
-/* Title style */
-.title {
-  display: block;
-  text-align: center;
-  font-family: 'Solvent';
-  font-weight: bold;
-  font-size: 25px;
-  color: #9F7953;
-  margin: 15px 0;
-  text-decoration: none;
-}
+    }
 
-/* Underline */
-.underline {
-  width: 100%;
-  border-top: 1px solid #9F7953;
-  margin: 10px 0 15px;
-}
+    /* 제목 */
+    .title {
+      font-family: 'Solvent';
+      font-size: 50px;
+      color: #9F7953;
+      -webkit-text-stroke: 2px #9F7953;
+      position: absolute;
+      top: 100px;
+      left: 50px;
+    }
 
-/* Navigation bar */
-.nav {
+    /* 본문: 이미지 · 설명 · 목록 */
+    .main {
+      display: flex;
+      gap: 40px;
+       flex-wrap: wrap;  
+    }
+    .main .photo {
+      width: 400px;
+      height: 600px;
+      object-fit: cover;
+      border: 1px solid #CCC;
+    }
+    .main .caption {
+      flex: 1;
+      margin-top:30px;
+    }
+    .main .caption h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+    .main .caption p {
+      line-height: 1.4;
+    }
+    .main .contents {
+      width: 200px;
+    }
+    .contents h4 {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    .contents ul {
+      list-style: none;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+    .flex-break {
+  flex-basis: 100%;     /* takes 100% width, so everything after drops down */
+  height: 0;            /* no extra height introduced */
+}
+    
+    .postcards {
   display: flex;
-  justify-content: center;
-  gap: 80px;
-  font-size: 10px;
-  font-weight: bold;
-  margin-bottom: 30px;
+  flex-wrap: wrap;      /* 화면이 좁으면 다음 줄로 넘김 */
+  gap: 10px;            /* 이미지 사이 간격 */
+  margin-top: 10px;     /* 위 텍스트와 간격 */
 }
 
-/* Content area */
-.content {
-  font-size: 11px;
-  line-height: 2;
-  overflow-y: auto;
-  padding-right: 30px;
-  flex-grow: 1; /* Fill remaining space */
-  justify-content: space-between;
-
+.postcards .photo {
+  width: 500px;         /* 원하는 크기로 조절 */
+  height: auto;
+  object-fit: cover;
+  border: 1px solid #CCC;
 }
 
-/* Bold text in content */
-.content b {
-  font-weight: bold;
-}
+    /* 버튼 */
+    .actions {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;    
+    }
+    .order-btn {
+      position: relative;
+      padding: 20px 70px;
+      background: #F0E2C7;
+      border: 1px solid #9F7953;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #9F7953;
+      cursor: pointer;
+      overflow: hidden;
+      transition: background .3s ease;
+       margin-left: auto;
+    }
+    .order-btn:hover {
+      background: #D4701F;
+    }
+    .order-btn span { display: inline-block; }
+    .order-btn:hover span { visibility: hidden; }
+    .order-btn:hover::after {
+      content: "Sold out";
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      color: #FFF;
+      font-weight: bold;
+    }
 
+    /* 구분선 & 디테일 */
+    .divider {
+      border: none;
+      border-top: 1px solid #9F7953;
+    }
+    .detail {
+      font-size: 14px;
+    }
 
+  
 /* Credits style */
 .credits {
   position: absolute;
@@ -146,140 +187,61 @@ a:hover {
   font-size: 10px;
   color: #8b5e3c;
 }
-
-/* Image style */
-.g, .lp {
-  width: 100%;
-  max-width: 400px;
-  margin-top: 20px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.button-link {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  text-decoration: none;
-  border-radius: 6px;
-}
-
-.spacing {
-  margin-left: 10px; 
-}
-
-.image-text-box {
-  display: flex;
-  align-items: left; /* 세로 정렬 */
-  gap: 15px; /* 이미지와 텍스트 사이 간격 */
-}
-
-.image-text-box .image {
-  width: 250px; /* 원하는 너비로 조절 */
-  height: auto;
-}
-
-.image-text-box .text {
-  font-size: 12px;
-  line-height: 1.5;
-}
-
-    
   </style>
-  
 </head>
+
 <body>
+  <div class="card">
+    <a href="index.html" class="title">TOWARDS A NEW MATERIALITY</a>
 
-  <div class="container">
-    <div class="card">
-      <a href="index.html" class="title">TOWARDS A NEW MATERIALITY</a>
-      <div class="underline"></div>
-
-      <div class="nav">
-        <div><a href="Recipe.html" class="menu">Recipe</a></div>
-        <div><a href="Plantpot.html" class="menu">Plant pot</a></div>
-        <div><a href="DIYkit.html" class="menu">DIY kit</a></div>
+    <div class="main">
+      <img src="k2.jpg" class="photo">
+      <div class="caption">
+        <h3>Towards A New Materiality: Bioplastic Plant Pot DIY kit</h3>
+        <p>Just unpack the kit, follow the simple steps, and watch your bioplastic plant pot take shape.</p><br>
       </div>
-
-      <div class="content">
-        
-      <div class="image-text-box">
-        <img src="img/test.jpg" class="image">
-        <p class="text">Towards <br>
-          A <br>
-          New <br>
-          Materiality <br>
-          <b>DIY Kit</b>
-</p>
-        </div>
-
-        
-        
-        <br><b>Contents</b><br>
-
-Corn starch 100g,
-Tapioca starch 100g,
-Vinegar 70ml,
-Glycerine 70ml,
-Guidebook 1ea,
-Mini Recipe 2ea,
-Postcard 1set 18ea<br>
-(16 × 9.5 × 4.5 cm)
-        
-<a href="#" class="button-link">Order</a>
-
-        <div class="slideshow">
-          <div class="slide">
-            <img src="img/a1.jpg">
-          </div>
-          <div class="slide">
-            <img src="img/a2.jpg">
-          </div>
-          <div class="slide">
-            <img src="img/a3.jpg">
-          </div>
-          <div class="slide">
-            <img src="img/a4.jpg">
-          </div>
-          <div class="slide">
-            <img src="img/a5.jpg">
-          </div>
-        </div>
-        
-      </div>
+     <div class="flex-break"></div>
+    <div class="actions">
+      <button class="order-btn"><span>Order</span></button>
+            </div>
     </div>
-  </div>
+      <div class="flex-break"></div>
+      <div class="content">
 
+        <div><b>Contents</b></div>
+        Corn Starch 70g<br>
+        Tapioca Starch 70g<br>
+        Vinegar 100ml<br>
+        Glycerine 100ml<br>
+        Guidebook 1ea<br>
+        Mini-recipe 2ea<br>
+        Postcard 1set(18ea)<br>
+  
+        
+        <div class="postcards">
+    <img src="k1.jpg" alt="Postcard 1" class="photo">
+    <img src="k3.jpg" alt="Postcard 2" class="photo">
+    <img src="k4.jpg" alt="Postcard 3" class="photo">
+             <img src="k5.jpg" alt="Postcard 4" class="photo">
+    <img src="k6.jpg" alt="Postcard 2" class="photo">
+    <img src="k9.jpg" alt="Postcard 6" class="photo">
+            
+          </div>
+        </div>
+        <br>
+    <br>
+        <div><b>Detail</b></div>
+n × n × n cm<br>
   <div class="credits">
-    Thanks to<br />
-    Richard Brett / Design Dept / Goldsmiths, University of London<br />
-    Giestas / info@giestas.com
+        Thanks to<br />
+        Richard Brett / Design Dept / Goldsmiths, University of London<br />
+        Giestas / info@giestas.com
+      </div>
+
+      <div class="signature">
+        <a href="https://www.instagram.com/__yoonyoojin?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">@__yoonyoojin</a>
+      </div>
   </div>
 
-  <div class="signature">
-    <a href="https://www.instagram.com/__yoonyoojin?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">@__yoonyoojin</a>
-  </div>
-
-  
-  <script src="
-https://cdn.jsdelivr.net/npm/flickity-imagesloaded@2.0.0/flickity-imagesloaded.min.js
-"></script>
-  <script>
-    
-    var elem = document.querySelector('.slideshow');
-    var flkty = new Flickity( elem, {
-      cellAlign: 'left',
-      contain: true,
-      pageDots: false,
-      imagesLoaded: true
-    });
-    
-  
-
-    
-  </script>
-  
-</body>
+  </body>
 </html>
